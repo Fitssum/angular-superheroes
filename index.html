@@ -14,11 +14,18 @@
 
   <p>First superheroes: {{vm.superheroes[3]}}</p>
 
-  <div ng-repeat="superheroes in vm.superheroes" ng-show="superheroes.completed">
+  <div ng-repeat="superheroes in vm.superheroes" ng-show="superheroes.completed" | filter: {completed: false}>
     <p>{{$index + 1}}. {{superheroes.name}}</p>
     <p>{{superheroes.phone_number}}</p>
     <p>{{superheroes.comics_affiliation}}</p>
     <p><img ng-src="{{superheroes.image_url}}"></p>
+  </div>
+
+  <div>
+    <form>
+      <p>Search: {{vm.newSuperheroes}}</p>
+      <input type="search" name ="phonesearch" ng-model="vm.newSuperheroes">
+    </form>
   </div>
 
 </body>
